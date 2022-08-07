@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Lista delle Prenotazioni degli Spettacoli";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model List<PrenotazioniSpettacoliModel>;
+<br /><br />
+<h3>Ecco la lista di tutte le prenotazioni effettuate dagli utenti.</h3>
+<br /><br /><br />
+<div class="container">    
+    @{
+        <table class="table-hover table-striped table-bordered">
+            <tr>
+                <td>Id Evento</td>
+                <td>Nome Evento</td>
+                <td>Locale</td>
+                <td>Posti prenotati</td>                
+            </tr>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].Id</td>
+                    <td>@Model[i].NomeEvento</td>
+                    <td>@Model[i].Locale</td>
+                    <td>@Model[i].PostiPre</td>
+                    
+                    
+                </tr>
+            }
+        </table>
+    }
+</div>
+<br /><br /><br />
+
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fconcetto-scenico-tropicale-dell-oceano-del-mare-della-nave-da-crociera-dell-yacht-66128447.jpg&f=1&nofb=1" alt="Lamp" width="500">
+
+
+
+
+
+

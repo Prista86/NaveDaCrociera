@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model LoginModel
+@using Microsoft.AspNetCore.Identity
+@using NaveDaCrociera.DB.Entities
+@inject SignInManager<User> SignInManager
+<h1 style="text-align: center"> Accedi per poter scegliere i tuoi spettacoli preferiti durante il soggiorno!</h1>
+@if (!SignInManager.IsSignedIn(User))
+{
+    <div class="container">
+        <p>Di seguito puoi inserire i dati della tua mail e la password che ti è stata inviata via telegramma direttamente a casa tua!</p>
+        <div class="row">
+            <div class="col-6">
+                <form asp-action="Login" asp-controller="Home" method="post" style="text-align:center">
+                    <div class="form-group">
+                        <label asp-for="@Model.Password">Mail</label>
+                        <input asp-for="@Model.UserName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Password"></label>
+                        <input asp-for="@Model.Password" class="form-control" />
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Cliccami per effettuare il Login!!!" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsiviaggia.it%2Fwp-content%2Fuploads%2Fsites%2F2%2F2020%2F01%2Fqueen-mary-2.nave-crociera-atlantico.jpg&f=1&nofb=1" alt="Lamp" width="600">
+}
+else
+{
+    <div>Sei già loggato</div>
+}

@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Eventi";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model List<SpettacoliModel>;
+<h3>Ecco la lista degli eventi!!</h3>
+<p>Di seguito puoi visionare tutti gli eventi disponibili!</p>
+<p>Cliccando sul tasto "Prenota" hai la possibilità di scegliere per quante persone riservare il posto!</p>
+<p>Dove troverai nella colonna Annullato il valore 1 non sarà possibile prenotare alcun biglietto.</p>
+<p>Nel caso in cui non sarà possibile prenotare o non ci saranno abbastanza posti disponibili sarai avvisato!</p>
+<p>Grazie e buon divertimento!!!!</p>
+<p>La Direzione dei Divertimenti.</p>
+<br></br></br>
+
+
+<div class="container">    
+    @{
+        <table class="table-hover table-striped table-bordered">
+            <tr>
+                <td>Id Evento</td>
+                <td>Nome Evento</td>
+                <td>Locale</td>
+                <td>Posti disponibili</td>
+                <td>Annullato</td>
+                <td>Prenota!</td>                
+            </tr>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].Id</td>
+                    <td>@Model[i].NomeEvento</td>
+                    <td>@Model[i].Locale</td>
+                    <td>@Model[i].Posti</td>
+                    <td>@Model[i].Annullato</td>                    
+                    <td><button class="btn btn-primary" onclick="prenota('@Model[i].Id','@Model[i].NomeEvento','@Model[i].Locale','@Model[i].Posti','@Model[i].Annullato')">Prenota</button></td>                    
+                </tr>
+            }
+        </table>
+    }
+</div>
+<br /><br /><br />
+
+<img src="http://4.bp.blogspot.com/-7haNPis3TpI/VIitzATWQUI/AAAAAAABv20/GaJtnk8dWNo/s1600/Crociere-1.jpg" alt="Lamp" width="500">
+
+
+
+
+
+
